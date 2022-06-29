@@ -113,3 +113,21 @@ const createRange = (start, end) => {
 };
 
 console.log(createRange(1, 10));
+
+const countElements = (array) => {
+  let newArray = [...new Set(array)];
+  let newObject = {};
+  for (let letter of newArray) {
+    let counter = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (letter === array[i]) {
+        counter++;
+      }
+    }
+    newObject[letter] = counter;
+  }
+
+  return newObject;
+};
+
+console.log(countElements(["a", "b", "a", "c", "a", "b"]));
