@@ -114,20 +114,29 @@ const createRange = (start, end) => {
 
 console.log(createRange(1, 10));
 
+// const countElements = (array) => {
+//   let newArray = [...new Set(array)].sort();
+//   let newObject = {};
+//   for (let letter of newArray) {
+//     let counter = 0;
+//     for (let i = 0; i < array.length; i++) {
+//       if (letter === array[i]) {
+//         counter++;
+//       }
+//     }
+//     newObject[letter] = counter;
+//   }
+//   return newObject;
+// };
+
 const countElements = (array) => {
-  let newArray = [...new Set(array)];
+  let newArray = [...new Set(array)].sort();
   let newObject = {};
   for (let letter of newArray) {
-    let counter = 0;
-    for (let i = 0; i < array.length; i++) {
-      if (letter === array[i]) {
-        counter++;
-      }
-    }
-    newObject[letter] = counter;
+    let count = array.filter((item) => item === letter);
+    newObject[letter] = count.length;
   }
-
   return newObject;
 };
 
-console.log(countElements(["a", "b", "a", "c", "a", "b"]));
+console.log(countElements(["d", "a", "b", "a", "c", "a", "b", "a", "a", "a"]));
