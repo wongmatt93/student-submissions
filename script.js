@@ -130,7 +130,7 @@ console.log(createRange(1, 10));
 // };
 
 const countElements = (array) => {
-  let newArray = [...new Set(array)].sort();
+  let newArray = array.filter((x, i, a) => a.indexOf(x) === i).sort();
   let newObject = {};
   for (let letter of newArray) {
     let count = array.filter((item) => item === letter);
